@@ -12,6 +12,7 @@ export default function Contador() {
       <button onClick={() => setCount((count) => count + 1)}>
         count is {count}
       </button>
+      <p>Holangas</p>
     </div>
   </>
   );
