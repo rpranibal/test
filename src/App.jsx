@@ -1,14 +1,23 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "./context/Provider";
-import Contador from "./componentes/Contador";
+import Detalle from "./views/Detalle";
+import Carrito from "./views/Carrito";
+import Home from "./views/Home";
+import Navbar from "./componentes/Navbar";
 import './App.css'
 
 function App() {
-
-
   return (
-    <Provider>
-      <Contador/>
-    </Provider>
+        <BrowserRouter>
+        <Provider>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/pizzas/:id" element={<Detalle />} />
+            <Route path="/carrito" element={<Carrito />} />
+          </Routes>
+        </Provider>
+      </BrowserRouter>
   )
 }
 
