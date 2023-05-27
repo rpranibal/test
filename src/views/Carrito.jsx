@@ -13,13 +13,13 @@ const Carrito = () => {
           <h5>Detalles del pedido:</h5>
           <div className="p3 bg-white">
             {carrito.map((producto, i) => (
-              <div key={i} className="d-flex justify-content-between py-2">
-                <div className="d-flex justify-content-between align-items-center">
+              <div key={i} className="item d-flex justify-content-between py-2">
+                <div className="item d-flex justify-content-between align-items-center">
                   <img src={producto.img} width="50" alt="" />
                   <h6 className="mb-0 text-capitalize p-2">{producto.name}</h6>
                 </div>
 
-                <div className="d-flex justify-content-end align-items-center">
+                <div className="item d-flex justify-content-end align-items-center">
                   <h6 className="mb-0 p-2 text-success">
                     ${producto.price * producto.count}
                   </h6>

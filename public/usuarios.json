@@ -1,0 +1,15 @@
+[
+    {
+      "userId": 1,
+      "correo": "hola@pizzotas.cl",
+      "contraseña": 1234,
+      "favorito": [1,2,3]
+    },
+    {
+      "userId": 2,
+      "correo": "rpranibal@pizzotas.cl",
+      "contraseña": 12345,
+      "favorito": []
+    }
+  ]
+  

@@ -1,31 +1,24 @@
 import { useContext } from "react";
 import Context from "../context/Provider";
 
-const Card = () => {
+const Favorito = () => {
   // const [total, setTotal] = useState(0);
-  const { termino, pizzas, setPizzas, addToCart } = useContext(Context);
+  const {  pizzas, setPizzas, addToCart } = useContext(Context);
 
-  const setFavorito = (id) => {
-    const productoIndex = pizzas.findIndex((p) => p.id === id);
-    pizzas[productoIndex].liked = !pizzas[productoIndex].liked;
+  const deleteFavorito = (id) => {
+    const productosIndex = pizzas.findIndex((e) => e.id === id);
+    pizzas[productosIndex].liked = !pizzas[productosIndex].liked;
     setPizzas([...pizzas]);
-    console.log(pizzas)
   };
 
   return (
-    //agregar filtro
     <>
-      {pizzas.filter((el) => {
-            if (termino === "") {
-              return el;
-            } else if (el.name.includes(termino)) {
-              return el;
-            }
-        }).map((p) => (
+    <div className="lista-productos">
+        {pizzas.filter((elem) => elem.liked)?.map((p) => (
         <div key={p.id} className="col">
           <div className="card">
-          <div onClick={() => setFavorito(p.id)} className="favorite">
-            +
+          <div onClick={() => deleteFavorito(p.id)} className="favorite">
+            -
           </div>
             <img className="card-img-top" src={p.img} alt="" width="300px"/>
             <div className="card-body">
@@ -48,8 +41,9 @@ const Card = () => {
           </div>
         </div>
       ))}
+      </div>
     </>
   );
 };
 
-export default Card;
+export default Favorito;
