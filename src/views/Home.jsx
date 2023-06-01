@@ -12,7 +12,7 @@ const Home = () => {
           <input  type="search" placeholder="Busca tu producto" aria-label="Search" onChange={(e) => {
                  setTermino(e.target.value);
           }}/>
-        </div>
+      </div>
         <div className="lista-productos row row-cols-1 row-cols-md-3 g-4">
           <Card />
         </div>

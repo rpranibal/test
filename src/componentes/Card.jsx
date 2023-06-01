@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext,useEffect } from "react";
 import Context from "../context/Provider";
 
 const Card = () => {
@@ -12,9 +12,43 @@ const Card = () => {
     console.log(pizzas)
   };
 
+  function Ordenar(e) {
+    switch (e) {
+      case 'medema':
+        pizzas.sort((a, b) => a.price - b.price);
+        setPizzas([...pizzas]);
+        break;
+      case 'mademe':
+        pizzas.sort((a, b) => b.price - a.price);
+        setPizzas([...pizzas]);
+        break;
+      case 'a-z':
+       pizzas.sort((a, b) => a.name.localeCompare(b.name));
+       setPizzas([...pizzas])
+        break;
+      case 'z-a':
+       pizzas.sort((a, b) => b.name.localeCompare(a.name));
+       setPizzas([...pizzas])
+       break;
+      default:
+        console.log(`Sorry, we are out of ${e}.`);
+    }
+  }
+
+
   return (
     //agregar filtro
     <>
+      <div className="selector">
+        <select onChange={(e) => {Ordenar(e.target.value);}}>
+          <option value="default" disabled>Ordenar por:</option>
+          <option value="medema">Precio: menor a mayor</option>
+          <option value="mademe">Precio: mayor a menor</option>
+          <option value="a-z">Alfabeticamente: A-Z</option>
+          <option value="z-a">Alfabeticamente: Z-A</option>
+        </select>
+      </div>
+
       {pizzas.filter((el) => {
             if (termino === "") {
               return el;
