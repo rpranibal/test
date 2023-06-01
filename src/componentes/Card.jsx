@@ -12,6 +12,13 @@ const Card = () => {
     console.log(pizzas)
   };
 
+  // Funcion Ordenar recibe la opcion seleccionada con el onChange
+  // y ene ste caso utilice Switch para ir diferenciando cada valor de los option del select
+  // *** no es obligatorio usar switch tambien podemos usar if else
+  // En cada opcion utilizo el metodo sort para ordenar segun los esperado menor mayor, mayor menor, A-Z y Z-A
+  // y cada vez que ordena con el sort() vuelvo a guardar pizzas ordenadas con setPizzas.
+  // obligando a cambiar el estado del Pizzas y cambiando el orden de la renderizacion con el .map()
+
   function Ordenar(e) {
     switch (e) {
       case 'medema':
@@ -37,7 +44,9 @@ const Card = () => {
 
 
   return (
-    //agregar filtro
+    //Agregar Select en el archivo que tengas tu map de productos 
+    //En el select se usa un onChange para capturar el valor que se selecciona
+    //En el onChange se llama a una funcion que se encargara de ordenar segun la opcion seleccionada.
     <>
       <div className="selector">
         <select onChange={(e) => {Ordenar(e.target.value);}}>
